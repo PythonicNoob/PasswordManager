@@ -1,0 +1,97 @@
+{%  load static %}
+<html>
+    <head>
+        <title>
+            Password Manager
+        </title>
+
+        <link rel="stylesheet" type="text/css" href="{%  static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" ty[e="text/css" href="{%  static 'vendor/bootstrap-icons/bootstrap-icons.css' %}">
+        <style>
+            .container-contact100 {
+                width: 100%;  
+                min-height: 100vh;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                background: #f9fbfd;
+  
+                }
+
+            .wrap-contact100 {
+                width: 500px;
+                background: #fff;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 42px 55px 45px 55px;
+                }
+            input {
+                border-top: none !important;
+                border-left: none !important;
+                border-right: none !important;
+                }
+        </style>
+    </head>
+
+    <body>
+        
+
+        <div class="container-contact100">
+            <div class="wrap-contact100">
+                <h1 style="text-align: -webkit-center;"> 
+                    Register 
+                </h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {% if form.non_field_errors or form.password.errors or form.username.errors%}
+                        <div class="alert alert-danger" role="alert">
+                            {{ form.non_field_errors }}
+                            {{ form.password.errors }}
+                            {{ form.username.errors }}
+                        </div>
+                    {% endif %}
+                    <div class="form-group" style="
+                      margin-top: 10%;
+                  ">
+                      
+                      <input type="text" class="form-control" id="username_input" aria-describedby="usernameHelp" placeholder="Username" name="username" style="
+                      border-top: none;
+                      border-left: none;
+                      border-right: none;
+                  ">
+                      
+                    </div>
+                    <div class="form-group" style="
+                      margin-top: 10%;
+                  ">
+                      
+                      <input type="email" class="form-control" id="email_input" aria-describedby="emailHelp" placeholder="Email" name="email" style="
+                      border-top: none;
+                      border-left: none;
+                      border-right: none;
+                  ">
+                      
+                    </div>
+                    <div class="form-group" style="
+                      margin-top: 10%;
+                  ">
+                      <input type="password" name="password" class="form-control" id="password_input" placeholder="Password">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-danger" style="margin-top: 10%; position: relative;left: 37%;">Submit</button>
+                  </form>
+            </div>
+        </div>
+
+
+        <script src="{%  static 'vendor/jquery/jquery-3.6.0.min.js' %}"></script>
+        <script src="{%  static 'vendor/popper/popper.min.js' %}"></script>
+        <script src="{%  static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        
+    </body>
+</html>
